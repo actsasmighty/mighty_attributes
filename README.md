@@ -1,4 +1,4 @@
-# Activemodel::Attributes
+# ActivemMdel::Attributes
 
 [![Build Status](https://travis-ci.org/servizio-rb/activemodel-attributes.svg?branch=master)](https://travis-ci.org/servizio-rb/activemodel-attributes)
 [![Code Climate](https://codeclimate.com/github/servizio-rb/activemodel-attributes/badges/gpa.svg)](https://codeclimate.com/github/servizio-rb/activemodel-attributes)
@@ -35,7 +35,7 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/activemodel-attributes.
+Bug reports and pull requests are welcome on GitHub at https://github.com/servizio-rb/activemodel-attributes.
 
 
 ## License
