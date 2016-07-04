@@ -1,9 +1,12 @@
 sudo: false
 language: ruby
 rvm:
-  - 1.9
-  - 2.0
+  - 1.9.3
+  - 2.0.0
   - 2.1
   - 2.2
   - 2.3
+  - jruby-1.7
+  - jruby
+  - rbx
 before_install: gem install bundler -v 1.12.5
