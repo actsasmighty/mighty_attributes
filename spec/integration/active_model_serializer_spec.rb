@@ -36,7 +36,6 @@ describe "Integration tests" do
         ]
       )
 
-      binding.pry
       record.as_json
     end
   end
