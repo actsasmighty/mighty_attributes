@@ -15,6 +15,5 @@ require "mighty_attributes"
 
 begin
   require "pry"
-rescue LoadError
+rescue LoadError # rubocop:disable Lint/HandleExceptions
 end
-

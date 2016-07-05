@@ -20,7 +20,7 @@ describe MightyAttributes do
       it "creates attribute accessors for the given name" do
         klass.attribute attribute_name, String
         some_instance = klass.new
-        reader_name = "#{attribute_name}".to_sym
+        reader_name = attribute_name.to_sym
         writer_name = "#{attribute_name}=".to_sym
         some_value = "value"
 

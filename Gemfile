@@ -5,6 +5,7 @@ gemspec
 group :development do
   gem "bundler"
   gem "rake"
+  gem "rubocop", "~> 0.41.1", require: false
   gem "rspec", "~> 3.0"
   gem "simplecov"
 
@@ -18,9 +19,7 @@ group :development do
   end
 
   # json (implicit dependency)
-  if RUBY_VERSION <= "1.9.3"
-    gem "json", "< 2"
-  end
+  gem "json", "< 2" if RUBY_VERSION <= "1.9.3"
 
   if !ENV["CI"] && RUBY_ENGINE == "ruby"
     gem "pry"

@@ -8,7 +8,7 @@ Gem::Specification.new do |spec|
   spec.version       = MightyAttributes::VERSION
   spec.authors       = ["Michael Sievers"]
 
-  spec.summary       = %q{Attributes for (active) models}
+  spec.summary       = "Attributes for (active) models"
   spec.homepage      = "https://github.com/actsasmighty/mighty_attributes"
   spec.license       = "MIT"
 
