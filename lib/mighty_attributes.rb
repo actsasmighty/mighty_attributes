@@ -6,8 +6,10 @@ module MightyAttributes
   end
 
   def self.add_reader(klass, attribute, options)
+    reader_name = attribute.to_sym
+
     klass.instance_exec do
-      define_method attribute.to_sym do
+      define_method reader_name do
         instance_variable_name = "@#{attribute}".to_sym
 
         unless instance_variable_defined?(instance_variable_name)
@@ -17,14 +19,20 @@ module MightyAttributes
         end
       end
     end
+
+    reader_name
   end
 
   def self.add_writer(klass, attribute, _options)
+    writer_name = "#{attribute}=".to_sym
+
     klass.instance_exec do
-      define_method "#{attribute}=".to_sym do |value|
+      define_method writer_name do |value|
         instance_variable_set("@#{attribute}", value)
       end
     end
+
+    writer_name
   end
 
   module ClassMethods
