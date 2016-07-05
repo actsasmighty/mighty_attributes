@@ -5,7 +5,7 @@ require "activemodel/attributes/version"
 
 Gem::Specification.new do |spec|
   spec.name          = "activemodel-attributes"
-  spec.version       = Activemodel::Attributes::VERSION
+  spec.version       = ActiveModel::Attributes::VERSION
   spec.authors       = ["Michael Sievers"]
 
   spec.summary       = %q{Attributes for ActiveModel}

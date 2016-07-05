@@ -1,4 +1,4 @@
-module Activemodel
+module ActiveModel
   module Attributes
     VERSION = "0.1.0"
   end
