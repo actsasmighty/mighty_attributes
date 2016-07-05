@@ -1,7 +1,7 @@
 #!/usr/bin/env ruby
 
 require "bundler/setup"
-require "activemodel/attributes"
+require "mighty_attributes"
 
 require "pry"
 Pry.start

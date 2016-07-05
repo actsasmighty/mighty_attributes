@@ -1,12 +1,12 @@
-describe ActiveModel::Attributes do
+describe MightyAttributes do
   it "has a version number" do
-    expect(ActiveModel::Attributes::VERSION).not_to be nil
+    expect(MightyAttributes::VERSION).not_to be nil
   end
 
   context "if included into a class" do
     let(:klass) do
       Class.new do
-        include ActiveModel::Attributes
+        include MightyAttributes
       end
     end
 
@@ -33,7 +33,7 @@ describe ActiveModel::Attributes do
       context "if there exist methods with conflicting names" do
         let(:klass) do
           Class.new do
-            include ActiveModel::Attributes
+            include MightyAttributes
 
             def foo
             end
@@ -44,8 +44,8 @@ describe ActiveModel::Attributes do
         end
 
         it "raises an error" do
-          expect { klass.attribute :foo, String }.to raise_error(ActiveModel::Attributes::MethodAlreadyDefinedError)
-          expect { klass.attribute :bar, String }.to raise_error(ActiveModel::Attributes::MethodAlreadyDefinedError)
+          expect { klass.attribute :foo, String }.to raise_error(MightyAttributes::MethodAlreadyDefinedError)
+          expect { klass.attribute :bar, String }.to raise_error(MightyAttributes::MethodAlreadyDefinedError)
         end
       end
     end
@@ -61,7 +61,7 @@ describe ActiveModel::Attributes do
 
       let(:klass_with_patched_private) do
         Class.new do
-          include ActiveModel::Attributes
+          include MightyAttributes
 
           def foo; end
           def bar; end

@@ -11,7 +11,7 @@ else
   SimpleCov.start
 end
 
-require "activemodel/attributes"
+require "mighty_attributes"
 
 begin
   require "pry"

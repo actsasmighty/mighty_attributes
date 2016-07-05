@@ -10,8 +10,10 @@ group :development do
 
   # activesupport
   if RUBY_VERSION < "2.2.2"
+    gem "activemodel", "< 5"
     gem "activesupport", "< 5"
   else
+    gem "activemodel"
     gem "activesupport"
   end
 
