@@ -1,5 +1,8 @@
 # MightyAttributes
 
+[![Build Status](https://travis-ci.org/actsasmighty/mighty_attributes.svg?branch=master)](https://travis-ci.org/actsasmighty/mighty_attributes)
+[![Code Climate](https://codeclimate.com/github/actsasmighty/mighty_attributes/badges/gpa.svg)](https://codeclimate.com/github/actsasmighty/mighty_attributes)
+
 ## Installation
 
 Add this line to your application's Gemfile:
