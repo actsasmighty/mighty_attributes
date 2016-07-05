@@ -29,25 +29,6 @@ describe MightyAttributes do
         some_instance.send(writer_name, some_value)
         expect(some_instance.send(reader_name)).to eq(some_value)
       end
-
-      context "if there exist methods with conflicting names" do
-        let(:klass) do
-          Class.new do
-            include MightyAttributes
-
-            def foo
-            end
-
-            def bar=(value)
-            end
-          end
-        end
-
-        it "raises an error" do
-          expect { klass.attribute :foo, String }.to raise_error(MightyAttributes::MethodAlreadyDefinedError)
-          expect { klass.attribute :bar, String }.to raise_error(MightyAttributes::MethodAlreadyDefinedError)
-        end
-      end
     end
 
     describe ".private" do
