@@ -23,11 +23,24 @@ module MightyAttributes
     reader_name
   end
 
-  def self.add_writer(klass, attribute, _options)
+  def self.add_writer(klass, attribute, options)
     writer_name = "#{attribute}=".to_sym
 
     klass.instance_exec do
       define_method writer_name do |value|
+        result_should_be_a_collection = options[:type].is_a?(Array)
+        type = result_should_be_a_collection ? options[:type].first : options[:type]
+
+        if type
+          if result_should_be_a_collection
+            value = [value].flatten(1).map do |element|
+              element.is_a?(type) ? element : type.new(element)
+            end
+          else
+            value = type.new(value) unless value.is_a?(type)
+          end
+        end
+
         instance_variable_set("@#{attribute}", value)
       end
     end
@@ -35,12 +48,17 @@ module MightyAttributes
     writer_name
   end
 
+  # class methods
   module ClassMethods
     def attribute(name, type = nil, options = {})
       if type.is_a?(Hash) && options.is_a?(Hash) && options.empty?
         options = type
-        type = nil # rubocop:disable Lint/UselessAssignment
+      else
+        options[:type] = type
       end
+
+      class_variable_set(:@@mighty_attributes, {}) unless class_variable_defined?(:@@mighty_attributes)
+      class_variable_get(:@@mighty_attributes)[name.to_s] = nil unless options[:serialize] == false
 
       [
         (MightyAttributes.add_reader(self, name, options) unless options[:reader] == false),
@@ -54,5 +72,10 @@ module MightyAttributes
     def private(*method_names)
       super(*method_names.flatten)
     end
+  end
+
+  # instance methods
+  def attributes
+    self.class.class_variable_defined?(:@@mighty_attributes) ? self.class.class_variable_get(:@@mighty_attributes) : {}
   end
 end

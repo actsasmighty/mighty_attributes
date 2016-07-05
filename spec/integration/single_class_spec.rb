@@ -1,7 +1,7 @@
 require "active_model"
 require "mighty_attributes"
 
-describe "Examples" do
+describe "Integration tests" do
   describe "single user class" do
     it do
       class User
